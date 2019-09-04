@@ -4,9 +4,10 @@ spring:
   - dev
  
 ---
-
+web-service:
+  url: 127.0.0.1:9001
 server:
- port: 8201
+ port: 9000
 spring:
  profiles: dev
  application:
@@ -18,14 +19,18 @@ zuul:
   proxy:
     addProxyHeaders: true
   routes:
-    baidu:
-      path: /baidu
-      url: http://baidu.com
-
+   oc:
+      path: /oc/**
+      url: http://192.168.10.126:9001/oc
+   jjd:
+      path: /jjd/**
+      url: http://192.168.10.126:9002/jjd
 --- 
 
+web-service:
+  url: 127.0.0.1:9001
 server:
- port: 8202
+ port: 9000
 spring:
  profiles: test
  application:
@@ -37,6 +42,9 @@ zuul:
   proxy:
     addProxyHeaders: true
   routes:
-    hao123:
-      path: /hao123
-      url: https://www.hao123.com/
+    oc:
+      path: /oc/**
+      url: http://192.168.10.126:9001/oc
+   jjd:
+      path: /jjd/**
+      url: http://192.168.10.126:9003/jjd
