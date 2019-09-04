@@ -27,10 +27,14 @@ zuul:
       url: http://192.168.10.126:9003/jjd
 management:
   endpoint:
-    env:
-      enabled: true
+    health:
+      show-details: always
   server:
     port: 10000
+  endpoints:
+    web:
+      exposure:
+        include: *
 
 ---
 
