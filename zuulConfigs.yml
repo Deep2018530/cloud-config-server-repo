@@ -1,0 +1,42 @@
+spring:
+ profiles:
+  active:
+  - dev
+ 
+---
+
+server:
+ port: 8201
+spring:
+ profiles: dev
+ application:
+  name: microservicecloud-config-client
+zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 30000
+  proxy:
+    addProxyHeaders: true
+  routes:
+    baidu:
+      path: /baidu
+      url: http://baidu.com
+
+--- 
+
+server:
+ port: 8202
+spring:
+ profiles: test
+ application:
+  name: microservicecloud-config-client
+zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 30000
+  proxy:
+    addProxyHeaders: true
+  routes:
+    hao123:
+      path: /hao123
+      url: https://www.hao123.com/
