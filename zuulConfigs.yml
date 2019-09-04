@@ -1,17 +1,17 @@
 spring:
- profiles:
-  active:
-  - dev
- 
+  profiles:
+    active:
+      - dev
+
 ---
 web-service:
   url: 127.0.0.1:9001
 server:
- port: 9000
+  port: 9000
 spring:
- profiles: dev
- application:
-  name: microservicecloud-config-client
+  profiles: dev
+  application:
+    name: microservicecloud-config-client
 zuul:
   host:
     socket-timeout-millis: 60000
@@ -19,13 +19,17 @@ zuul:
   proxy:
     addProxyHeaders: true
   routes:
-   oc:
+    oc:
       path: /oc/**
       url: http://192.168.10.126:9001/oc
-   jjd:
+    jjd:
       path: /jjd/**
       url: http://192.168.10.126:9003/jjd
---- 
+management:
+  endpoint:
+    env:
+     enabled: true
+---
 
 # web-service:
 #   url: 127.0.0.1:9001
