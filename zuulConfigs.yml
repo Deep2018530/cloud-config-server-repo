@@ -24,7 +24,7 @@ zuul:
       url: http://192.168.10.126:9001/oc
    jjd:
       path: /jjd/**
-      url: http://127.0.0.1:9002/jjd
+      url: http://192.168.10.126:9002/jjd
 --- 
 
 # web-service:
