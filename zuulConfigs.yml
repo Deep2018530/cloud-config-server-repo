@@ -28,7 +28,10 @@ zuul:
 management:
   endpoint:
     env:
-     enabled: true
+      enabled: true
+  server:
+    port: 10000
+
 ---
 
 # web-service:
